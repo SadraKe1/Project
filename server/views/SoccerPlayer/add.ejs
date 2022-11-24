@@ -1,0 +1,57 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/main_nav.ejs') %>
+
+<!-- Content for add page -->
+<div class="container">
+<div class="row">
+   <div class="col-md-offset-3 col-md-6">
+   <h1><%= title %></h1>
+
+
+   <form class="form" method="post">
+   <div class="form-group">
+   <label for="nameTextField"> Soccer Player's Name</label>
+   <input type="text" class="form-control"
+   id="nameTextField"
+   placeholder="Enter the Player's name"
+   name="name" required>
+   </div>
+
+<div class="form-group">
+   <label for="nameTextField"> Team</label>
+   <input type="text" class="form-control"
+   id="TeamTextField"
+   placeholder="Enter the Soccer Player's Team"
+   name="Team" required>
+   </div>
+
+   <div class="form-group">
+   <label for="nameTextField">DOB</label>
+   <input type="text" class="form-control"
+   id="publishTextField"
+   placeholder=" Enter the Date of Birth Of The player (YEAR/MM/DD)"
+   name="DOB" required>
+   </div>
+
+   <div class="form-group">
+   <label for="NationalityTextField"> Nationality</label>
+   <textarea type="text" class="form-control"
+   id="NationalityTextField"
+   placeholder="Enter the Nationality Of the Player"
+   name="Nationality" required></textarea>
+   </div>
+
+<br>
+<button class="btn-btn-primary" type="submit">
+<i class="fas fa-edit"></i> Submit
+</button>
+
+<a href="/SoccerPlayer-list" class="btn btn-warning">
+<i class="fas fa-undo"></i>Cancel</a>
+</form>
+
+   </div>
+   </div>
+</div>
+<%- include ('../partials/bottom_nav.ejs') %>
+<%- include ('../partials/footer.ejs') %>
