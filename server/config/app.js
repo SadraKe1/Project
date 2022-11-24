@@ -19,7 +19,7 @@ console.log('connected to the MongoDB');
 
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let SoccerPlayersRouter = require('../routes/SoccerPlayer');
+let JobSearchRouter = require('../routes/JobSearch');
 let app = express();
 
 // view engine setup
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter); // localhost:3000
 app.use('/users', usersRouter); // localhost:3000/users
-app.use('/SoccerPlayer-list',SoccerPlayersRouter);
+app.use('/JobSearch-list',JobSearchRouter);
 
 // catch 404 and forward to error 
 app.use(function(req, res, next) {

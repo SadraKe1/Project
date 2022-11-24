@@ -1,0 +1,53 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/main_nav.ejs') %>
+<!-- Main Content -->
+<main class="container">
+  <div class="row"> 
+  <div class="col-md-offset-3 col-md-10">
+  <h1> Job Listings</h1>
+  <a href="/JobSearch-list/add" class="btn btn-primary" role="button">
+  <i class="fas fa-plus-circle"></i> Add a Job! 
+  </a>
+  <br>
+  <br>
+  <table class= "table table-bordered table-striped table-hover">
+  <tr>
+  <th class="text-center col-2"> Job Title </th>
+  <th class="text-center col-2"> Requirements </th>
+  <th class="text-center col-1"> Hourly Rate</th>
+  <th class="text-center col-5"> Availability </th>
+  <th class="text-center col-1">  </th>
+  <th class="text-center col-1">  </th>
+  </tr>
+  <!-- Repeat the template --> 
+  <% for(let count=0; count<JobSearchlist.length; count++) { %>
+  <tr>
+  <td class="text-center col-2"><%= JobSearchlist [count].jobtitle %></td>
+  <td class="text-center col-2"><%= JobSearchlist [count].requirements %></td>
+  <td class="text-center col-1"><%= JobSearchlist [count].hourlysalary %></td>
+  <td class="text-center col-5"><%= JobSearchlist [count].availability %></td>
+  
+  <td class="text-center col-1">
+  <a href="/JobSearch-list/edit/<%= JobSearchlist [count]._id %>"
+  class = "btn btn-primary">
+  <i class="fas fa-pencil-alt"></i> Edit </a>
+  </td>
+ <td class="text-center col-1">
+  <a href="/JobSearch-list/delete/<%= JobSearchlist [count]._id %>"
+  class = "btn btn-danger">
+  <i class="fas fa-trash-alt"></i> Delete </a>
+  </td>
+
+
+  </tr>
+  <% } %>
+  </table>
+
+  </div>
+  
+</div>
+</main>
+
+
+<%- include ('../partials/bottom_nav.ejs') %>
+<%- include ('../partials/footer.ejs') %>
