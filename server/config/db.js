@@ -1,5 +1,5 @@
 module.exports = 
 {
 
-    "URI":"mongodb://localhost/JobSearch"
+    "URI":"mongodb://127.0.0.1/JobSearch"
 }
