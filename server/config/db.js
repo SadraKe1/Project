@@ -1,5 +1,5 @@
 module.exports = 
 {
 
-    "URI":"mongodb://127.0.0.1/JobSearch"
+    "URI":"mongodb+srv://qFGzmAagRzKgy37i:qFGzmAagRzKgy37i@cluster0.sntowzs.mongodb.net/test"
 }
