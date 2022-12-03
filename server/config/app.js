@@ -5,6 +5,17 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+let session=require('express-session');
+let passport  =require('passport');
+let passportLocal =require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
+let app = express();
+
+//instance for user model
+let userModel = require('../models/user');
+let user = userModel.User;
+
 let mongoose = require ('mongoose');
 let DB = require('./db');
 
@@ -17,10 +28,32 @@ console.log('connected to the MongoDB');
 
 });
 
+
+//serialize and deserialize user info
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
+
+///initalize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+//initalize flash
+app.use(flash());
+
+// setup express session
+app.use(session({
+  secret:"SomeSecret",
+  saveUninitialized:false,
+  resave:false
+}))
+
+
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let JobSearchRouter = require('../routes/JobSearch');
-let app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
