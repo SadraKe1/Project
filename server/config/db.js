@@ -1,5 +1,5 @@
 module.exports = 
 {
 
-    "URI":"mongodb+srv://qFGzmAagRzKgy37i:qFGzmAagRzKgy37i@cluster0.sntowzs.mongodb.net/test"
+    "URI":"mongodb+srv://SadraKeGroup22:yblxvWaGhEpgHfFf@cluster0.pf5ns46.mongodb.net/test"
 }

@@ -26,8 +26,14 @@ mongDB.on('error',console.error.bind(console,'Connection Error:'));
 mongDB.once('open',()=> {
 console.log('connected to the MongoDB');
 
+
 });
 
+app.use(session({
+  secret:"SomeSecret",
+  saveUninitialized:false,
+  resave:false
+}))
 
 //serialize and deserialize user info
 passport.serializeUser(user.serializeUser());
@@ -42,11 +48,7 @@ app.use(passport.session());
 app.use(flash());
 
 // setup express session
-app.use(session({
-  secret:"SomeSecret",
-  saveUninitialized:false,
-  resave:false
-}))
+
 
 
 let indexRouter = require('../routes/index');
