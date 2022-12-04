@@ -6,6 +6,16 @@ let mongoose= require ('mongoose');
 
 let JobSearch = require('../models/JobSearch');
 let JobSearchController=require('../controller/JobSearch');
+
+function requireAuth(req,res,next)
+{
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login');
+    }
+    next();
+}
+
 /* Read */
 router.get('/',JobSearchController.displayJobSearchList);
 
@@ -13,7 +23,7 @@ router.get('/',JobSearchController.displayJobSearchList);
 
  //Add operation 
  
- router.get('/add',JobSearchController.displayAddPage);
+router.get('/add',requireAuth, JobSearchController.displayAddPage);
 
 //post for add change this later 28:07 last vid
 router.post('/add',(req,res,next)=>{

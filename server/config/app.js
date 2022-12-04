@@ -14,7 +14,7 @@ let app = express();
 
 //instance for user model
 let userModel = require('../models/user');
-let user = userModel.User;
+let User = userModel.User;
 
 let mongoose = require ('mongoose');
 let DB = require('./db');
@@ -35,9 +35,12 @@ app.use(session({
   resave:false
 }))
 
+// implement a user authentication
+passport.use(User.createStrategy());
+
 //serialize and deserialize user info
-passport.serializeUser(user.serializeUser());
-passport.deserializeUser(user.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 ///initalize passport
 app.use(passport.initialize());
