@@ -16,16 +16,11 @@ if (err)
 
     res.render('JobSearch/list',{
 title:'Job Searching Page',
-JobSearchlist: JobSearchlist
-
-    })
+JobSearchlist: JobSearchlist,
+displayName: req.user ? req.user.displayName: ''
+ })
 }
-
-
 });
-
-
-
 }
 
 module.exports.displayAddPage = (req,res,next)=>{

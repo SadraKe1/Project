@@ -7,7 +7,8 @@ let User = userModel.User;
 
 //requests home page and displays it
 module.exports.displayHomepage = function(req, res, next) {
-    res.render('index', {   title: "Home"  });
+    res.render('index', {   title: "Home",
+  displayName: req.user ? req.user.displayName:''  });
   }
 
 //requests about page and displays it
@@ -119,6 +120,10 @@ module.exports.displayHomepage = function(req, res, next) {
 
   module.exports.performLogout = (req,res,next) =>
   {
-    req.logout();
+    req.logout(function(err){
+      if(err){
+        return next(err)
+      }
+    });
     res.redirect('/');
   }

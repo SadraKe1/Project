@@ -24,6 +24,17 @@
             <% } %>           
           <i class="fa-solid fa-table-list"></i> Jobs</a>
         </li>
+        <% if(typeof displayName=='string' && displayName) { %>
+        <li class="navbar-text">
+        <i class="fa-solid fa-user-secret"></i> Welcome, <%= displayName %> </li>
+        <li class="nav-item">
+        <a href="/logout" class="nav-link">
+        <i class="fa-solid fa-user-xmark"></i> Logout</a></li>
+        <% } else { %>
+        <li class="nav-item">
+        <a href="/login" class="nav-link">
+        <i class="fa-solid fa-user-plus"></i> Login</a></li>
+        <% } %>
       </ul>
     </div>
   </div>
